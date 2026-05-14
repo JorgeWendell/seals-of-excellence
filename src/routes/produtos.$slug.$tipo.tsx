@@ -5,11 +5,7 @@ import { getTipo, pdfHref } from "@/lib/produtos-data";
 // Descrição específica por tipo. Chave = nome exato do tipo (ex: "Tipo 27").
 // Edite/adicione textos aqui conforme necessário.
 const DESCRICOES: Record<string, string> = {
-  "Selo Du-O-Lap tipo 27 é não balanceado, com Fole de
-Elastômero e de mola única. Sua mola protegida
-impede qualquer tipo de travamento do selo mecânico
-e o acúmulo de resíduos. Indicado especialmente para
-as indústrias alimentícias e farmacêuticas.",
+  "Tipo 27": "Selo Du-O-Lap tipo 27 é não balanceado, com Fole de Elastômero e de mola única. Sua mola protegida impede qualquer tipo de travamento do selo mecânico e o acúmulo de resíduos. Indicado especialmente para as indústrias alimentícias e farmacêuticas.",
   "Tipo 31/32": "Selo mecânico Tipo 31/32 — descrição específica deste produto.",
   "Tipo 42": "Selo mecânico Tipo 42 — descrição específica deste produto.",
   "Tipo 49": "Selo mecânico Tipo 49 — descrição específica deste produto.",
