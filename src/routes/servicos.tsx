@@ -1,21 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Settings, RefreshCcw, ClipboardCheck, Users } from "lucide-react";
+import { Wrench, RefreshCcw, Cog, CircleDot } from "lucide-react";
 
 export const Route = createFileRoute("/servicos")({
   head: () => ({
     meta: [
       { title: "Serviços — Engenharia em vedação | APC Seal" },
-      { name: "description", content: "Recondicionamento, engenharia de aplicação, assistência técnica e treinamento em selos mecânicos." },
+      { name: "description", content: "Recuperação de selos mecânicos, manutenção em uniões rotativas, recuperação de bombas e lapidação plana." },
     ],
   }),
   component: Servicos,
 });
 
 const servicos = [
-  { icon: RefreshCcw, t: "Recondicionamento", d: "Recuperação de selos com qualidade de fábrica e prazo reduzido." },
-  { icon: Settings, t: "Engenharia de Aplicação", d: "Seleção e dimensionamento do selo ideal para sua operação." },
-  { icon: ClipboardCheck, t: "Assistência Técnica", d: "Inspeção em campo, análise de falhas e recomendações." },
-  { icon: Users, t: "Treinamento", d: "Capacitação de equipes de manutenção em vedação industrial." },
+  { icon: RefreshCcw, t: "Recuperação em Selos Mecânicos", d: "Recondicionamento de selos com qualidade de fábrica e prazo reduzido." },
+  { icon: Cog, t: "Manutenção em Uniões Rotativas", d: "Manutenção e reparo de uniões rotativas para máxima confiabilidade." },
+  { icon: Wrench, t: "Recuperação em Bombas", d: "Reparo e recuperação de bombas industriais com garantia de desempenho." },
+  { icon: CircleDot, t: "Lapidação Plana", d: "Lapidação plana de alta precisão para faces de vedação e componentes." },
 ];
 
 function Servicos() {
