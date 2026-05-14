@@ -16,6 +16,7 @@ import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProdutosIndexRouteImport } from './routes/produtos.index'
 import { Route as ProdutosSlugRouteImport } from './routes/produtos.$slug'
+import { Route as ProdutosSlugIndexRouteImport } from './routes/produtos.$slug.index'
 import { Route as ProdutosSlugTipoRouteImport } from './routes/produtos.$slug.$tipo'
 
 const ServicosRoute = ServicosRouteImport.update({
@@ -53,6 +54,11 @@ const ProdutosSlugRoute = ProdutosSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => ProdutosRoute,
 } as any)
+const ProdutosSlugIndexRoute = ProdutosSlugIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ProdutosSlugRoute,
+} as any)
 const ProdutosSlugTipoRoute = ProdutosSlugTipoRouteImport.update({
   id: '/$tipo',
   path: '/$tipo',
@@ -68,15 +74,16 @@ export interface FileRoutesByFullPath {
   '/produtos/$slug': typeof ProdutosSlugRouteWithChildren
   '/produtos/': typeof ProdutosIndexRoute
   '/produtos/$slug/$tipo': typeof ProdutosSlugTipoRoute
+  '/produtos/$slug/': typeof ProdutosSlugIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
   '/empresa': typeof EmpresaRoute
   '/servicos': typeof ServicosRoute
-  '/produtos/$slug': typeof ProdutosSlugRouteWithChildren
   '/produtos': typeof ProdutosIndexRoute
   '/produtos/$slug/$tipo': typeof ProdutosSlugTipoRoute
+  '/produtos/$slug': typeof ProdutosSlugIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -88,6 +95,7 @@ export interface FileRoutesById {
   '/produtos/$slug': typeof ProdutosSlugRouteWithChildren
   '/produtos/': typeof ProdutosIndexRoute
   '/produtos/$slug/$tipo': typeof ProdutosSlugTipoRoute
+  '/produtos/$slug/': typeof ProdutosSlugIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -100,15 +108,16 @@ export interface FileRouteTypes {
     | '/produtos/$slug'
     | '/produtos/'
     | '/produtos/$slug/$tipo'
+    | '/produtos/$slug/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/contato'
     | '/empresa'
     | '/servicos'
-    | '/produtos/$slug'
     | '/produtos'
     | '/produtos/$slug/$tipo'
+    | '/produtos/$slug'
   id:
     | '__root__'
     | '/'
@@ -119,6 +128,7 @@ export interface FileRouteTypes {
     | '/produtos/$slug'
     | '/produtos/'
     | '/produtos/$slug/$tipo'
+    | '/produtos/$slug/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -180,6 +190,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProdutosSlugRouteImport
       parentRoute: typeof ProdutosRoute
     }
+    '/produtos/$slug/': {
+      id: '/produtos/$slug/'
+      path: '/'
+      fullPath: '/produtos/$slug/'
+      preLoaderRoute: typeof ProdutosSlugIndexRouteImport
+      parentRoute: typeof ProdutosSlugRoute
+    }
     '/produtos/$slug/$tipo': {
       id: '/produtos/$slug/$tipo'
       path: '/$tipo'
@@ -192,10 +209,12 @@ declare module '@tanstack/react-router' {
 
 interface ProdutosSlugRouteChildren {
   ProdutosSlugTipoRoute: typeof ProdutosSlugTipoRoute
+  ProdutosSlugIndexRoute: typeof ProdutosSlugIndexRoute
 }
 
 const ProdutosSlugRouteChildren: ProdutosSlugRouteChildren = {
   ProdutosSlugTipoRoute: ProdutosSlugTipoRoute,
+  ProdutosSlugIndexRoute: ProdutosSlugIndexRoute,
 }
 
 const ProdutosSlugRouteWithChildren = ProdutosSlugRoute._addFileChildren(
@@ -226,3 +245,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
