@@ -24,6 +24,28 @@ const DESCRICOES: Record<string, string> = {
   "Tipo 107": "Selo mecânico Tipo 107 — descrição específica deste produto.",
 };
 
+// Foto do produto. Chave = nome exato do tipo. Coloque os arquivos em /public/produtos/
+// (ex: public/produtos/tipo-27.jpg) e referencie como "/produtos/tipo-27.jpg".
+const IMAGENS: Record<string, string> = {
+  "Tipo 27": "/produtos/tipo-27.jpg",
+  "Tipo 31/32": "/produtos/tipo-31-32.jpg",
+  "Tipo 42": "/produtos/tipo-42.jpg",
+  "Tipo 49": "/produtos/tipo-49.jpg",
+  "Tipo 49B": "/produtos/tipo-49b.jpg",
+  "Tipo 50": "/produtos/tipo-50.jpg",
+  "Tipo 50B": "/produtos/tipo-50b.jpg",
+  "Tipo 51": "/produtos/tipo-51.jpg",
+  "Tipo 51B": "/produtos/tipo-51b.jpg",
+  "Tipo 53": "/produtos/tipo-53.jpg",
+  "Tipo 53B": "/produtos/tipo-53b.jpg",
+  "Tipo 54/54B": "/produtos/tipo-54-54b.jpg",
+  "Tipo 58/58B": "/produtos/tipo-58-58b.jpg",
+  "Tipo 84/85": "/produtos/tipo-84-85.jpg",
+  "Tipo 94": "/produtos/tipo-94.jpg",
+  "Tipo 100": "/produtos/tipo-100.jpg",
+  "Tipo 107": "/produtos/tipo-107.jpg",
+};
+
 export const Route = createFileRoute("/produtos/$slug/$tipo")({
   beforeLoad: ({ params }) => {
     if (!getTipo(params.slug, params.tipo)) throw notFound();
