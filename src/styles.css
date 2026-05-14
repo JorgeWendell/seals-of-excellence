@@ -59,6 +59,12 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-accent-red: var(--accent-red);
+  --color-accent-red-foreground: var(--accent-red-foreground);
+  --color-industrial-dark: var(--industrial-dark);
+  --color-industrial-dark-foreground: var(--industrial-dark-foreground);
+  --font-display: 'Oswald', 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
 }
 
 :root {
