@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import { Search, ArrowRight } from "lucide-react";
 import { categorias } from "@/lib/produtos-data";
 
-export const Route = createFileRoute("/produtos")({
+export const Route = createFileRoute("/produtos/")({
   head: () => ({
     meta: [
       { title: "Produtos — Selos Mecânicos | APC Seal" },
