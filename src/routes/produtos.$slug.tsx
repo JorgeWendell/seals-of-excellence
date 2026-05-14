@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { ArrowLeft, Search } from "lucide-react";
-import { getCategoria } from "@/lib/produtos-data";
+import { getCategoria, tipoSlug } from "@/lib/produtos-data";
 
 export const Route = createFileRoute("/produtos/$slug")({
   beforeLoad: ({ params }) => {
