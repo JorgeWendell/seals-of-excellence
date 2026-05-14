@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Cog, Layers, Droplets, Flame, Wind, Wrench } from "lucide-react";
+import { Cog, Layers, Shield, Disc3, Package } from "lucide-react";
 
 export const Route = createFileRoute("/produtos")({
   head: () => ({
@@ -12,12 +12,11 @@ export const Route = createFileRoute("/produtos")({
 });
 
 const produtos = [
-  { icon: Cog, t: "Selos Cartucho", d: "Montagem rápida e segura, ideais para manutenção em campo." },
-  { icon: Layers, t: "Selos Duplos", d: "Vedação para fluidos perigosos, tóxicos ou de alto valor agregado." },
-  { icon: Droplets, t: "Selos para Bombas", d: "Linha completa para bombas centrífugas API e ANSI." },
-  { icon: Wind, t: "Selos para Agitadores", d: "Soluções para reatores e misturadores industriais." },
-  { icon: Flame, t: "Selos para Alta Temperatura", d: "Materiais especiais para aplicações críticas." },
-  { icon: Wrench, t: "Peças e Componentes", d: "Faces, molas, anéis e elastômeros de reposição." },
+  { icon: Layers, t: "Selos Mecânicos Simples", d: "Vedação confiável para aplicações industriais convencionais." },
+  { icon: Cog, t: "Selos Mecânico Cartucho", d: "Montagem rápida e segura, ideais para manutenção em campo." },
+  { icon: Shield, t: "Protetor de Mancal", d: "Proteção contra contaminação e prolongamento da vida útil dos mancais." },
+  { icon: Disc3, t: "Maquina Lapidadora", d: "Equipamentos para lapidação de faces de selos com alta precisão." },
+  { icon: Package, t: "Produtos Diversos", d: "Faces, molas, anéis, elastômeros e componentes de reposição." },
 ];
 
 function Produtos() {
