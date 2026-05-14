@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { MessageCircle, Menu, X } from "lucide-react";
 import { useState } from "react";
 import logo from "@/assets/logo-apc.png";
+import duolap from "@/assets/logo-duolap.png";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -21,6 +22,13 @@ export function SiteHeader() {
           <div className="leading-tight">
             <div className="font-display text-xl font-bold text-primary">APC <span className="text-accent-red">SEAL</span></div>
             <div className="text-[10px] tracking-[0.2em] text-muted-foreground font-semibold">SELOS MECÂNICOS</div>
+          </div>
+          <div className="hidden md:flex items-center gap-2 ml-4 pl-4 border-l border-border">
+            <img src={duolap} alt="Du-O-Lap" className="h-10 w-10 object-contain" width={40} height={40} />
+            <div className="leading-tight">
+              <div className="text-[9px] tracking-[0.18em] text-muted-foreground font-semibold uppercase">Revendedor Autorizado</div>
+              <div className="font-display text-sm font-bold text-[#1f7a1f]">DU-O-LAP</div>
+            </div>
           </div>
         </Link>
 
