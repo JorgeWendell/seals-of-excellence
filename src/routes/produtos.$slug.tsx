@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { ArrowLeft, Search } from "lucide-react";
-import { getCategoria } from "@/lib/produtos-data";
+import { getCategoria, tipoSlug } from "@/lib/produtos-data";
 
 export const Route = createFileRoute("/produtos/$slug")({
   beforeLoad: ({ params }) => {
@@ -89,12 +89,15 @@ function CategoriaPage() {
               ) : (
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                   {tipos.map((tipo: string) => (
-                    <div
+                    <Link
                       key={tipo}
-                      className="bg-card border border-border rounded-lg p-5 hover:border-primary hover:shadow-md transition"
+                      to="/produtos/$slug/$tipo"
+                      params={{ slug, tipo: tipoSlug(tipo) }}
+                      className="bg-card border border-border rounded-lg p-5 hover:border-primary hover:shadow-md transition flex items-center justify-between gap-2 group"
                     >
                       <span className="font-display uppercase font-bold text-foreground">{tipo}</span>
-                    </div>
+                      <span className="text-xs text-primary opacity-0 group-hover:opacity-100 transition">Ver →</span>
+                    </Link>
                   ))}
                 </div>
               )}

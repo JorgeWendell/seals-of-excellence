@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { Search, ArrowRight } from "lucide-react";
-import { categorias } from "@/lib/produtos-data";
+import { categorias, tipoSlug } from "@/lib/produtos-data";
 
 export const Route = createFileRoute("/produtos/")({
   head: () => ({
@@ -51,8 +51,8 @@ function Produtos() {
                   resultados.map(({ tipo, cat }) => (
                     <Link
                       key={`${cat.slug}-${tipo}`}
-                      to="/produtos/$slug"
-                      params={{ slug: cat.slug }}
+                      to="/produtos/$slug/$tipo"
+                      params={{ slug: cat.slug, tipo: tipoSlug(tipo) }}
                       className="flex items-center justify-between px-4 py-3 hover:bg-secondary border-b border-border last:border-0 transition"
                     >
                       <span className="font-medium text-foreground">{tipo}</span>
