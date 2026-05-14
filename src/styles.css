@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
@@ -59,20 +60,32 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-accent-red: var(--accent-red);
+  --color-accent-red-foreground: var(--accent-red-foreground);
+  --color-industrial-dark: var(--industrial-dark);
+  --color-industrial-dark-foreground: var(--industrial-dark-foreground);
+  --font-display: 'Oswald', 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  --radius: 0.5rem;
+  --background: oklch(0.99 0.003 250);
+  --foreground: oklch(0.18 0.04 255);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
+  --card-foreground: oklch(0.18 0.04 255);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.18 0.04 255);
+  --primary: oklch(0.52 0.22 258);
+  --primary-foreground: oklch(0.99 0.003 250);
+  --secondary: oklch(0.96 0.01 250);
+  --secondary-foreground: oklch(0.2 0.05 258);
+  --accent-red: oklch(0.58 0.24 27);
+  --accent-red-foreground: oklch(0.99 0.003 250);
+  --industrial-dark: oklch(0.18 0.03 255);
+  --industrial-dark-foreground: oklch(0.99 0.003 250);
+  --gradient-hero: linear-gradient(135deg, oklch(0.52 0.22 258) 0%, oklch(0.58 0.24 27) 100%);
+  --shadow-elegant: 0 20px 60px -20px oklch(0.52 0.22 258 / 0.35);
   --muted: oklch(0.968 0.007 247.896);
   --muted-foreground: oklch(0.554 0.046 257.417);
   --accent: oklch(0.968 0.007 247.896);
@@ -140,5 +153,11 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
   }
 }
