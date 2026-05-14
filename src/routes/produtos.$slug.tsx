@@ -36,7 +36,7 @@ function CategoriaPage() {
   const tipos = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return categoria.tipos;
-    return categoria.tipos.filter((t) => t.toLowerCase().includes(q));
+    return categoria.tipos.filter((t: string) => t.toLowerCase().includes(q));
   }, [categoria.tipos, query]);
 
   const Icon = categoria.icon;
@@ -85,7 +85,7 @@ function CategoriaPage() {
                 <p className="text-muted-foreground">Nenhum tipo encontrado para "{query}".</p>
               ) : (
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                  {tipos.map((tipo) => (
+                  {tipos.map((tipo: string) => (
                     <div
                       key={tipo}
                       className="bg-card border border-border rounded-lg p-5 hover:border-primary hover:shadow-md transition"
