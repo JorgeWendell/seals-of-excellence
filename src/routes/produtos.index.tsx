@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { Search, ArrowRight } from "lucide-react";
-import { categorias } from "@/lib/produtos-data";
+import { categorias, tipoSlug } from "@/lib/produtos-data";
 
 export const Route = createFileRoute("/produtos/")({
   head: () => ({
