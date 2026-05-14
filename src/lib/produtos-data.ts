@@ -53,3 +53,20 @@ export const categorias: Categoria[] = [
 
 export const getCategoria = (slug: string) =>
   categorias.find((c) => c.slug === slug);
+
+export const tipoSlug = (tipo: string) =>
+  tipo
+    .toLowerCase()
+    .replace(/\//g, "-")
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9-]/g, "");
+
+export const getTipo = (slug: string, tipoSlugStr: string) => {
+  const cat = getCategoria(slug);
+  if (!cat) return undefined;
+  const nome = cat.tipos.find((t) => tipoSlug(t) === tipoSlugStr);
+  return nome ? { categoria: cat, nome } : undefined;
+};
+
+export const pdfHref = (catSlug: string, tipoSlugStr: string) =>
+  `/pdfs/${catSlug}/${tipoSlugStr}.pdf`;
