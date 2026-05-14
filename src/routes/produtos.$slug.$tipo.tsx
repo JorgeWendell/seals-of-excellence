@@ -2,6 +2,28 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, Download, FileText } from "lucide-react";
 import { getTipo, pdfHref } from "@/lib/produtos-data";
 
+// Descrição específica por tipo. Chave = nome exato do tipo (ex: "Tipo 27").
+// Edite/adicione textos aqui conforme necessário.
+const DESCRICOES: Record<string, string> = {
+  "Tipo 27": "Selo mecânico Tipo 27 — descrição específica deste produto.",
+  "Tipo 31/32": "Selo mecânico Tipo 31/32 — descrição específica deste produto.",
+  "Tipo 42": "Selo mecânico Tipo 42 — descrição específica deste produto.",
+  "Tipo 49": "Selo mecânico Tipo 49 — descrição específica deste produto.",
+  "Tipo 49B": "Selo mecânico Tipo 49B — descrição específica deste produto.",
+  "Tipo 50": "Selo mecânico Tipo 50 — descrição específica deste produto.",
+  "Tipo 50B": "Selo mecânico Tipo 50B — descrição específica deste produto.",
+  "Tipo 51": "Selo mecânico Tipo 51 — descrição específica deste produto.",
+  "Tipo 51B": "Selo mecânico Tipo 51B — descrição específica deste produto.",
+  "Tipo 53": "Selo mecânico Tipo 53 — descrição específica deste produto.",
+  "Tipo 53B": "Selo mecânico Tipo 53B — descrição específica deste produto.",
+  "Tipo 54/54B": "Selo mecânico Tipo 54/54B — descrição específica deste produto.",
+  "Tipo 58/58B": "Selo mecânico Tipo 58/58B — descrição específica deste produto.",
+  "Tipo 84/85": "Selo mecânico Tipo 84/85 — descrição específica deste produto.",
+  "Tipo 94": "Selo mecânico Tipo 94 — descrição específica deste produto.",
+  "Tipo 100": "Selo mecânico Tipo 100 — descrição específica deste produto.",
+  "Tipo 107": "Selo mecânico Tipo 107 — descrição específica deste produto.",
+};
+
 export const Route = createFileRoute("/produtos/$slug/$tipo")({
   beforeLoad: ({ params }) => {
     if (!getTipo(params.slug, params.tipo)) throw notFound();
@@ -61,8 +83,8 @@ function TipoPage() {
             {nome}
           </h1>
           <p className="mt-3 max-w-2xl text-muted-foreground">
-            Selo mecânico {nome} — projetado para vedação confiável em aplicações industriais.
-            Consulte o catálogo completo para dimensões, materiais e condições operacionais.
+            {DESCRICOES[nome] ??
+              `Selo mecânico ${nome} — projetado para vedação confiável em aplicações industriais. Consulte o catálogo completo para dimensões, materiais e condições operacionais.`}
           </p>
         </div>
       </section>
