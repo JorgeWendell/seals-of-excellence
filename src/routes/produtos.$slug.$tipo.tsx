@@ -113,28 +113,20 @@ function TipoPage() {
 
       <section className="py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2 space-y-6">
-            <div className="bg-card border border-border rounded-lg p-7">
-              <h2 className="font-display uppercase text-xl font-bold text-foreground">
-                Características
-              </h2>
-              <ul className="mt-4 space-y-2 text-muted-foreground list-disc list-inside">
-                <li>Vedação primária por faces de carbeto/cerâmica</li>
-                <li>Construção balanceada / não-balanceada conforme aplicação</li>
-                <li>Elastômeros disponíveis: NBR, EPDM, FKM (Viton®), FFKM</li>
-                <li>Adequado a bombas centrífugas, agitadores e misturadores</li>
-              </ul>
-            </div>
-
-            <div className="bg-card border border-border rounded-lg p-7">
-              <h2 className="font-display uppercase text-xl font-bold text-foreground">
-                Aplicações típicas
-              </h2>
-              <p className="mt-3 text-muted-foreground">
-                Indústrias química, petroquímica, papel e celulose, alimentícia, farmacêutica
-                e tratamento de água. Para condições especiais (alta pressão, alta temperatura
-                ou fluidos abrasivos), entre em contato para dimensionamento.
-              </p>
+          <div className="lg:col-span-2">
+            <div className="bg-card border border-border rounded-lg overflow-hidden flex items-center justify-center aspect-[4/3]">
+              {IMAGENS[nome] ? (
+                <img
+                  src={IMAGENS[nome]}
+                  alt={`Foto do selo mecânico ${nome}`}
+                  className="w-full h-full object-contain"
+                  loading="lazy"
+                />
+              ) : (
+                <span className="text-sm text-muted-foreground p-8 text-center">
+                  Foto do {nome} em breve
+                </span>
+              )}
             </div>
           </div>
 
