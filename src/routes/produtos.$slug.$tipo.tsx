@@ -83,8 +83,8 @@ function TipoPage() {
             {nome}
           </h1>
           <p className="mt-3 max-w-2xl text-muted-foreground">
-            Selo mecânico {nome} — projetado para vedação confiável em aplicações industriais.
-            Consulte o catálogo completo para dimensões, materiais e condições operacionais.
+            {DESCRICOES[nome] ??
+              `Selo mecânico ${nome} — projetado para vedação confiável em aplicações industriais. Consulte o catálogo completo para dimensões, materiais e condições operacionais.`}
           </p>
         </div>
       </section>
