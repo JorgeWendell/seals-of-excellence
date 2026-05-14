@@ -4,17 +4,18 @@ import { ArrowLeft, Search } from "lucide-react";
 import { getCategoria } from "@/lib/produtos-data";
 
 export const Route = createFileRoute("/produtos/$slug")({
-  loader: ({ params }) => {
-    const categoria = getCategoria(params.slug);
-    if (!categoria) throw notFound();
-    return { categoria };
+  beforeLoad: ({ params }) => {
+    if (!getCategoria(params.slug)) throw notFound();
   },
-  head: ({ loaderData }) => ({
-    meta: [
-      { title: `${loaderData?.categoria.titulo ?? "Produto"} | APC Seal` },
-      { name: "description", content: loaderData?.categoria.descricao ?? "" },
-    ],
-  }),
+  head: ({ params }) => {
+    const categoria = params ? getCategoria(params.slug) : undefined;
+    return {
+      meta: [
+        { title: `${categoria?.titulo ?? "Produto"} | APC Seal` },
+        { name: "description", content: categoria?.descricao ?? "" },
+      ],
+    };
+  },
   notFoundComponent: () => (
     <div className="py-32 text-center">
       <h1 className="font-display text-3xl uppercase">Categoria não encontrada</h1>
@@ -30,15 +31,17 @@ export const Route = createFileRoute("/produtos/$slug")({
 });
 
 function CategoriaPage() {
-  const { categoria } = Route.useLoaderData();
+  const { slug } = Route.useParams();
+  const categoria = getCategoria(slug);
   const [query, setQuery] = useState("");
 
   const tipos = useMemo(() => {
     const q = query.trim().toLowerCase();
-    if (!q) return categoria.tipos;
-    return categoria.tipos.filter((t: string) => t.toLowerCase().includes(q));
-  }, [categoria.tipos, query]);
+    if (!q) return categoria?.tipos ?? [];
+    return (categoria?.tipos ?? []).filter((t: string) => t.toLowerCase().includes(q));
+  }, [categoria, query]);
 
+  if (!categoria) return null;
   const Icon = categoria.icon;
 
   return (
