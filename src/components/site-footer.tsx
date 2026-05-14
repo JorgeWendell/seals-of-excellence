@@ -25,8 +25,8 @@ export function SiteFooter() {
         <div>
           <h4 className="font-display uppercase tracking-wider text-sm mb-4 text-accent-red">Contato</h4>
           <ul className="space-y-3 text-sm text-industrial-dark-foreground/80">
-            <li className="flex items-start gap-2"><Phone className="w-4 h-4 mt-0.5 shrink-0" /> (00) 0000-0000</li>
-            <li className="flex items-start gap-2"><Mail className="w-4 h-4 mt-0.5 shrink-0" /> contato@apcseal.com.br</li>
+            <li className="flex items-start gap-2" suppressHydrationWarning><Phone className="w-4 h-4 mt-0.5 shrink-0" /> <span suppressHydrationWarning>(00) 0000-0000</span></li>
+            <li className="flex items-start gap-2" suppressHydrationWarning><Mail className="w-4 h-4 mt-0.5 shrink-0" /> <a href="mailto:contato@apcseal.com.br" suppressHydrationWarning>contato@apcseal.com.br</a></li>
             <li className="flex items-start gap-2"><MapPin className="w-4 h-4 mt-0.5 shrink-0" /> Brasil — Atendimento nacional</li>
           </ul>
         </div>
