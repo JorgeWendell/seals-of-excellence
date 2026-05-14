@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldCheck, Gauge, Target, Award, Headphones, Truck, BadgeCheck, CalendarClock, MessageCircle } from "lucide-react";
 import heroImg from "@/assets/hero-seals.jpg";
+import duolap from "@/assets/logo-duolap.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
