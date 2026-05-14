@@ -103,6 +103,18 @@ function Home() {
         </div>
       </section>
 
+      {/* Partner */}
+      <section className="py-10 bg-secondary border-y border-border">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-center gap-6 text-center sm:text-left">
+          <img src={duolap} alt="Du-O-Lap Selos Mecânicos" className="h-20 w-20 object-contain" width={80} height={80} />
+          <div>
+            <div className="font-display uppercase tracking-[0.25em] text-xs text-muted-foreground font-semibold">Revendedor Autorizado</div>
+            <div className="font-display text-2xl sm:text-3xl font-bold text-[#1f7a1f] uppercase">Du-O-Lap Selos Mecânicos</div>
+            <p className="text-sm text-muted-foreground mt-1 max-w-xl">Distribuímos a linha completa Du-O-Lap com garantia de fábrica e suporte técnico oficial.</p>
+          </div>
+        </div>
+      </section>
+
       {/* About teaser */}
       <section className="py-20 bg-background">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
