@@ -24,6 +24,28 @@ const DESCRICOES: Record<string, string> = {
   "Tipo 107": "Selo mecânico Tipo 107 — descrição específica deste produto.",
 };
 
+// Foto do produto. Chave = nome exato do tipo. Coloque os arquivos em /public/produtos/
+// (ex: public/produtos/tipo-27.jpg) e referencie como "/produtos/tipo-27.jpg".
+const IMAGENS: Record<string, string> = {
+  "Tipo 27": "/produtos/tipo-27.jpg",
+  "Tipo 31/32": "/produtos/tipo-31-32.jpg",
+  "Tipo 42": "/produtos/tipo-42.jpg",
+  "Tipo 49": "/produtos/tipo-49.jpg",
+  "Tipo 49B": "/produtos/tipo-49b.jpg",
+  "Tipo 50": "/produtos/tipo-50.jpg",
+  "Tipo 50B": "/produtos/tipo-50b.jpg",
+  "Tipo 51": "/produtos/tipo-51.jpg",
+  "Tipo 51B": "/produtos/tipo-51b.jpg",
+  "Tipo 53": "/produtos/tipo-53.jpg",
+  "Tipo 53B": "/produtos/tipo-53b.jpg",
+  "Tipo 54/54B": "/produtos/tipo-54-54b.jpg",
+  "Tipo 58/58B": "/produtos/tipo-58-58b.jpg",
+  "Tipo 84/85": "/produtos/tipo-84-85.jpg",
+  "Tipo 94": "/produtos/tipo-94.jpg",
+  "Tipo 100": "/produtos/tipo-100.jpg",
+  "Tipo 107": "/produtos/tipo-107.jpg",
+};
+
 export const Route = createFileRoute("/produtos/$slug/$tipo")({
   beforeLoad: ({ params }) => {
     if (!getTipo(params.slug, params.tipo)) throw notFound();
@@ -91,28 +113,20 @@ function TipoPage() {
 
       <section className="py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2 space-y-6">
-            <div className="bg-card border border-border rounded-lg p-7">
-              <h2 className="font-display uppercase text-xl font-bold text-foreground">
-                Características
-              </h2>
-              <ul className="mt-4 space-y-2 text-muted-foreground list-disc list-inside">
-                <li>Vedação primária por faces de carbeto/cerâmica</li>
-                <li>Construção balanceada / não-balanceada conforme aplicação</li>
-                <li>Elastômeros disponíveis: NBR, EPDM, FKM (Viton®), FFKM</li>
-                <li>Adequado a bombas centrífugas, agitadores e misturadores</li>
-              </ul>
-            </div>
-
-            <div className="bg-card border border-border rounded-lg p-7">
-              <h2 className="font-display uppercase text-xl font-bold text-foreground">
-                Aplicações típicas
-              </h2>
-              <p className="mt-3 text-muted-foreground">
-                Indústrias química, petroquímica, papel e celulose, alimentícia, farmacêutica
-                e tratamento de água. Para condições especiais (alta pressão, alta temperatura
-                ou fluidos abrasivos), entre em contato para dimensionamento.
-              </p>
+          <div className="lg:col-span-2">
+            <div className="bg-card border border-border rounded-lg overflow-hidden flex items-center justify-center aspect-[4/3]">
+              {IMAGENS[nome] ? (
+                <img
+                  src={IMAGENS[nome]}
+                  alt={`Foto do selo mecânico ${nome}`}
+                  className="w-full h-full object-contain"
+                  loading="lazy"
+                />
+              ) : (
+                <span className="text-sm text-muted-foreground p-8 text-center">
+                  Foto do {nome} em breve
+                </span>
+              )}
             </div>
           </div>
 
