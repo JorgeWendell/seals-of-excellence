@@ -1,20 +1,17 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { useMemo, useState } from "react";
 import { Search, ArrowRight } from "lucide-react";
 import { categorias, tipoSlug } from "@/lib/produtos-data";
+import { usePageMeta } from "@/lib/use-page-meta";
 
-export const Route = createFileRoute("/produtos/")({
-  head: () => ({
-    meta: [
-      { title: "Produtos — Selos Mecânicos | APC Seal" },
-      { name: "description", content: "Linha completa de selos mecânicos: simples, cartucho, protetor de mancal, máquina lapidadora e produtos diversos." },
-    ],
-  }),
-  component: Produtos,
-});
-
-function Produtos() {
+export function ProdutosPage() {
   const [query, setQuery] = useState("");
+
+  usePageMeta({
+    title: "Produtos — Selos Mecânicos | APC Seal",
+    description:
+      "Linha completa de selos mecânicos: simples, cartucho, protetor de mancal, máquina lapidadora e produtos diversos.",
+  });
 
   const resultados = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -30,9 +27,16 @@ function Produtos() {
     <div className="bg-background">
       <section className="py-16 bg-secondary border-b border-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <span className="font-display text-sm tracking-[0.3em] text-accent-red font-semibold uppercase">Produtos</span>
-          <h1 className="mt-3 font-display text-4xl sm:text-5xl uppercase font-bold text-foreground">Linha completa de selos mecânicos</h1>
-          <p className="mt-4 max-w-2xl text-muted-foreground">Engenharia, materiais e acabamento para vedação confiável em qualquer segmento industrial.</p>
+          <span className="font-display text-sm tracking-[0.3em] text-accent-red font-semibold uppercase">
+            Produtos
+          </span>
+          <h1 className="mt-3 font-display text-4xl sm:text-5xl uppercase font-bold text-foreground">
+            Linha completa de selos mecânicos
+          </h1>
+          <p className="mt-4 max-w-2xl text-muted-foreground">
+            Engenharia, materiais e acabamento para vedação confiável em qualquer segmento
+            industrial.
+          </p>
 
           <div className="mt-8 max-w-xl relative">
             <Search className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
@@ -51,8 +55,7 @@ function Produtos() {
                   resultados.map(({ tipo, cat }) => (
                     <Link
                       key={`${cat.slug}-${tipo}`}
-                      to="/produtos/$slug/$tipo"
-                      params={{ slug: cat.slug, tipo: tipoSlug(tipo) }}
+                      to={`/produtos/${cat.slug}/${tipoSlug(tipo)}`}
                       className="flex items-center justify-between px-4 py-3 hover:bg-secondary border-b border-border last:border-0 transition"
                     >
                       <span className="font-medium text-foreground">{tipo}</span>
@@ -71,14 +74,15 @@ function Produtos() {
           {categorias.map((p) => (
             <Link
               key={p.slug}
-              to="/produtos/$slug"
-              params={{ slug: p.slug }}
+              to={`/produtos/${p.slug}`}
               className="group bg-card border border-border rounded-lg p-7 hover:border-primary hover:shadow-xl transition flex flex-col"
             >
               <div className="w-14 h-14 rounded-md bg-gradient-to-br from-primary to-accent-red text-primary-foreground flex items-center justify-center group-hover:scale-110 transition-transform">
                 <p.icon className="w-6 h-6" />
               </div>
-              <h3 className="mt-5 font-display uppercase text-lg font-bold text-foreground">{p.titulo}</h3>
+              <h3 className="mt-5 font-display uppercase text-lg font-bold text-foreground">
+                {p.titulo}
+              </h3>
               <p className="mt-2 text-sm text-muted-foreground flex-1">{p.descricao}</p>
               <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary group-hover:gap-3 transition-all">
                 Ver produtos <ArrowRight className="w-4 h-4" />

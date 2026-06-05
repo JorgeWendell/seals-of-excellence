@@ -1,10 +1,10 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, Download, FileText } from "lucide-react";
 import { getTipo, pdfDownloadName, pdfHref } from "@/lib/produtos-data";
 import { cotacaoMessage, whatsAppUrl } from "@/lib/whatsapp";
+import { usePageMeta } from "@/lib/use-page-meta";
+import { NotFound } from "@/components/not-found";
 
-// Descrição específica por tipo. Chave = nome exato do tipo (ex: "Tipo 27").
-// Edite/adicione textos aqui conforme necessário.
 const DESCRICOES: Record<string, string> = {
   "Tipo 27":
     "Selo Du-O-Lap tipo 27 é não balanceado, com Fole de Elastômero e de mola única. Sua mola protegida impede qualquer tipo de travamento do selo mecânico e o acúmulo de resíduos. Indicado especialmente para as indústrias alimentícias e farmacêuticas.",
@@ -42,8 +42,6 @@ const DESCRICOES: Record<string, string> = {
     "Selo mecânico Tipo 107 — Selo Du-O-Lap tipo 107 é deslizante com molas múltiplas. Projetado para aplicações cotidianas nos mais variados tipos de equipamentos rotativos. Ideal para as indústrias alimentícias, petroquímicas, químicas, de papel e celulose e águas residuais.",
 };
 
-// Foto do produto. Chave = nome exato do tipo. Coloque os arquivos em /public/produtos/
-// (ex: public/produtos/tipo-27.jpg) e referencie como "/produtos/tipo-27.jpg".
 const IMAGENS: Record<string, string> = {
   "Tipo 27": "/produtos/tipo-27.png",
   "Tipo 31/32": "/produtos/tipo-31-32.jpg",
@@ -64,44 +62,19 @@ const IMAGENS: Record<string, string> = {
   "Tipo 107": "/produtos/tipo-107.jpg",
 };
 
-export const Route = createFileRoute("/produtos/$slug/$tipo")({
-  beforeLoad: ({ params }) => {
-    if (!getTipo(params.slug, params.tipo)) throw notFound();
-  },
-  head: ({ params }) => {
-    const found = params ? getTipo(params.slug, params.tipo) : undefined;
-    return {
-      meta: [
-        { title: `${found?.nome ?? "Produto"} | APC Seal` },
-        {
-          name: "description",
-          content: found
-            ? `${found.nome} — ${found.categoria.titulo}. Especificações técnicas e download do catálogo em PDF.`
-            : "",
-        },
-      ],
-    };
-  },
-  notFoundComponent: () => (
-    <div className="py-32 text-center">
-      <h1 className="font-display text-3xl uppercase">Produto não encontrado</h1>
-      <Link to="/produtos" className="mt-6 inline-block text-primary font-semibold">
-        Voltar aos produtos
-      </Link>
-    </div>
-  ),
-  errorComponent: ({ error }) => (
-    <div className="py-32 text-center">
-      <p className="text-muted-foreground">{error.message}</p>
-    </div>
-  ),
-  component: TipoPage,
-});
-
-function TipoPage() {
-  const { slug, tipo } = Route.useParams();
+export function ProdutosTipoPage() {
+  const { slug = "", tipo = "" } = useParams();
   const found = getTipo(slug, tipo);
-  if (!found) return null;
+
+  usePageMeta({
+    title: `${found?.nome ?? "Produto"} | APC Seal`,
+    description: found
+      ? `${found.nome} — ${found.categoria.titulo}. Especificações técnicas e download do catálogo em PDF.`
+      : "",
+  });
+
+  if (!found) return <NotFound />;
+
   const { categoria, nome } = found;
   const pdf = pdfHref(tipo);
   const pdfFilename = pdfDownloadName(nome);
@@ -112,8 +85,7 @@ function TipoPage() {
       <section className="py-16 bg-secondary border-b border-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Link
-            to="/produtos/$slug"
-            params={{ slug }}
+            to={`/produtos/${slug}`}
             className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition"
           >
             <ArrowLeft className="w-4 h-4" /> Voltar para {categoria.titulo}

@@ -1,25 +1,19 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link, useParams } from "react-router-dom";
 import { useMemo, useState } from "react";
 import { ArrowLeft, Search } from "lucide-react";
 import { getCategoria, tipoSlug } from "@/lib/produtos-data";
+import { usePageMeta } from "@/lib/use-page-meta";
+import { NotFound } from "@/components/not-found";
 
-export const Route = createFileRoute("/produtos/$slug/")({
-  head: ({ params }) => {
-    const categoria = params ? getCategoria(params.slug) : undefined;
-    return {
-      meta: [
-        { title: `${categoria?.titulo ?? "Produto"} | APC Seal` },
-        { name: "description", content: categoria?.descricao ?? "" },
-      ],
-    };
-  },
-  component: CategoriaPage,
-});
-
-function CategoriaPage() {
-  const { slug } = Route.useParams();
+export function ProdutosCategoriaPage() {
+  const { slug = "" } = useParams();
   const categoria = getCategoria(slug);
   const [query, setQuery] = useState("");
+
+  usePageMeta({
+    title: `${categoria?.titulo ?? "Produto"} | APC Seal`,
+    description: categoria?.descricao ?? "",
+  });
 
   const tipos = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -27,14 +21,18 @@ function CategoriaPage() {
     return (categoria?.tipos ?? []).filter((t: string) => t.toLowerCase().includes(q));
   }, [categoria, query]);
 
-  if (!categoria) return null;
+  if (!categoria) return <NotFound />;
+
   const Icon = categoria.icon;
 
   return (
     <div className="bg-background">
       <section className="py-16 bg-secondary border-b border-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Link to="/produtos" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition">
+          <Link
+            to="/produtos"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition"
+          >
             <ArrowLeft className="w-4 h-4" /> Voltar aos produtos
           </Link>
           <div className="mt-6 flex items-start gap-5">
@@ -42,8 +40,12 @@ function CategoriaPage() {
               <Icon className="w-7 h-7" />
             </div>
             <div>
-              <span className="font-display text-sm tracking-[0.3em] text-accent-red font-semibold uppercase">Produtos</span>
-              <h1 className="mt-2 font-display text-4xl sm:text-5xl uppercase font-bold text-foreground">{categoria.titulo}</h1>
+              <span className="font-display text-sm tracking-[0.3em] text-accent-red font-semibold uppercase">
+                Produtos
+              </span>
+              <h1 className="mt-2 font-display text-4xl sm:text-5xl uppercase font-bold text-foreground">
+                {categoria.titulo}
+              </h1>
               <p className="mt-3 max-w-2xl text-muted-foreground">{categoria.descricao}</p>
             </div>
           </div>
@@ -54,8 +56,12 @@ function CategoriaPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {categoria.tipos.length === 0 ? (
             <div className="text-center py-16 border border-dashed border-border rounded-lg">
-              <p className="text-muted-foreground">Linha em atualização. Entre em contato para consultar disponibilidade.</p>
-              <Link to="/contato" className="mt-4 inline-block text-primary font-semibold">Falar com a APC Seal</Link>
+              <p className="text-muted-foreground">
+                Linha em atualização. Entre em contato para consultar disponibilidade.
+              </p>
+              <Link to="/contato" className="mt-4 inline-block text-primary font-semibold">
+                Falar com a APC Seal
+              </Link>
             </div>
           ) : (
             <>
@@ -77,12 +83,15 @@ function CategoriaPage() {
                   {tipos.map((tipo: string) => (
                     <Link
                       key={tipo}
-                      to="/produtos/$slug/$tipo"
-                      params={{ slug, tipo: tipoSlug(tipo) }}
+                      to={`/produtos/${slug}/${tipoSlug(tipo)}`}
                       className="bg-card border border-border rounded-lg p-5 hover:border-primary hover:shadow-md transition flex items-center justify-between gap-2 group"
                     >
-                      <span className="font-display uppercase font-bold text-foreground">{tipo}</span>
-                      <span className="text-xs text-primary opacity-0 group-hover:opacity-100 transition">Ver →</span>
+                      <span className="font-display uppercase font-bold text-foreground">
+                        {tipo}
+                      </span>
+                      <span className="text-xs text-primary opacity-0 group-hover:opacity-100 transition">
+                        Ver →
+                      </span>
                     </Link>
                   ))}
                 </div>

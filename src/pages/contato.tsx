@@ -1,22 +1,14 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import { whatsAppUrl } from "@/lib/whatsapp";
+import { usePageMeta } from "@/lib/use-page-meta";
 
-export const Route = createFileRoute("/contato")({
-  head: () => ({
-    meta: [
-      { title: "Contato — APC Seal | Selos Mecânicos" },
-      {
-        name: "description",
-        content:
-          "Fale com a APC Seal. Atendimento técnico especializado em selos mecânicos para todo o Brasil.",
-      },
-    ],
-  }),
-  component: Contato,
-});
+export function ContatoPage() {
+  usePageMeta({
+    title: "Contato — APC Seal | Selos Mecânicos",
+    description:
+      "Fale com a APC Seal. Atendimento técnico especializado em selos mecânicos para todo o Brasil.",
+  });
 
-function Contato() {
   return (
     <div className="bg-background">
       <section className="py-16 bg-secondary border-b border-border">
@@ -58,7 +50,7 @@ function Contato() {
             <a
               href={whatsAppUrl()}
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
               className="mt-8 inline-flex items-center gap-2 bg-accent-red hover:bg-accent-red/90 text-accent-red-foreground px-6 py-4 rounded-md font-display font-semibold uppercase tracking-wider text-sm transition"
             >
               <MessageCircle className="w-4 h-4" /> WhatsApp
