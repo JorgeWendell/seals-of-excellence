@@ -1,0 +1,27 @@
+services:
+  app:
+    build: .
+    container_name: apcseal
+    restart: unless-stopped
+
+    networks:
+      - proxy
+
+    labels:
+      - traefik.enable=true
+
+      # Domínio
+      - traefik.http.routers.apcseal.rule=Host(`apc.adelbr.tech`)
+
+      # HTTPS
+      - traefik.http.routers.apcseal.entrypoints=websecure
+
+      # Let's Encrypt
+      - traefik.http.routers.apcseal.tls.certresolver=letsencrypt
+
+      # Porta interna do container
+      - traefik.http.services.apcseal.loadbalancer.server.port=80
+
+networks:
+  proxy:
+    external: true
