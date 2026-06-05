@@ -1,16 +1,11 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, Download, FileText } from "lucide-react";
-<<<<<<< HEAD
 import { getTipo, pdfDownloadName, pdfHref } from "@/lib/produtos-data";
 import { cotacaoMessage, whatsAppUrl } from "@/lib/whatsapp";
-=======
-import { getTipo, pdfHref } from "@/lib/produtos-data";
->>>>>>> c7088708e7d473ddc0affa4f734a02390af123a7
 
 // Descrição específica por tipo. Chave = nome exato do tipo (ex: "Tipo 27").
 // Edite/adicione textos aqui conforme necessário.
 const DESCRICOES: Record<string, string> = {
-<<<<<<< HEAD
   "Tipo 27":
     "Selo Du-O-Lap tipo 27 é não balanceado, com Fole de Elastômero e de mola única. Sua mola protegida impede qualquer tipo de travamento do selo mecânico e o acúmulo de resíduos. Indicado especialmente para as indústrias alimentícias e farmacêuticas.",
   "Tipo 31/32":
@@ -45,35 +40,12 @@ const DESCRICOES: Record<string, string> = {
     "Selo mecânico Tipo 100 — Selo Du-O-Lap tipo 100 com Fole de Elastômero, tem a face conduzida através da mola e anéis em L, com modelos de sede G4, G9 e G60. Um dos mais utilizados devido à sua versatilidade e eficácia. Recomendado para aplicações em águas residuais e esgotos.",
   "Tipo 107":
     "Selo mecânico Tipo 107 — Selo Du-O-Lap tipo 107 é deslizante com molas múltiplas. Projetado para aplicações cotidianas nos mais variados tipos de equipamentos rotativos. Ideal para as indústrias alimentícias, petroquímicas, químicas, de papel e celulose e águas residuais.",
-=======
-  "Tipo 27": "Selo Du-O-Lap tipo 27 é não balanceado, com Fole de Elastômero e de mola única. Sua mola protegida impede qualquer tipo de travamento do selo mecânico e o acúmulo de resíduos. Indicado especialmente para as indústrias alimentícias e farmacêuticas.",
-  "Tipo 31/32": "Selo mecânico Tipo 31/32 — descrição específica deste produto.",
-  "Tipo 42": "Selo mecânico Tipo 42 — descrição específica deste produto.",
-  "Tipo 49": "Selo mecânico Tipo 49 — descrição específica deste produto.",
-  "Tipo 49B": "Selo mecânico Tipo 49B — descrição específica deste produto.",
-  "Tipo 50": "Selo mecânico Tipo 50 — descrição específica deste produto.",
-  "Tipo 50B": "Selo mecânico Tipo 50B — descrição específica deste produto.",
-  "Tipo 51": "Selo mecânico Tipo 51 — descrição específica deste produto.",
-  "Tipo 51B": "Selo mecânico Tipo 51B — descrição específica deste produto.",
-  "Tipo 53": "Selo mecânico Tipo 53 — descrição específica deste produto.",
-  "Tipo 53B": "Selo mecânico Tipo 53B — descrição específica deste produto.",
-  "Tipo 54/54B": "Selo mecânico Tipo 54/54B — descrição específica deste produto.",
-  "Tipo 58/58B": "Selo mecânico Tipo 58/58B — descrição específica deste produto.",
-  "Tipo 84/85": "Selo mecânico Tipo 84/85 — descrição específica deste produto.",
-  "Tipo 94": "Selo mecânico Tipo 94 — descrição específica deste produto.",
-  "Tipo 100": "Selo mecânico Tipo 100 — descrição específica deste produto.",
-  "Tipo 107": "Selo mecânico Tipo 107 — descrição específica deste produto.",
->>>>>>> c7088708e7d473ddc0affa4f734a02390af123a7
 };
 
 // Foto do produto. Chave = nome exato do tipo. Coloque os arquivos em /public/produtos/
 // (ex: public/produtos/tipo-27.jpg) e referencie como "/produtos/tipo-27.jpg".
 const IMAGENS: Record<string, string> = {
-<<<<<<< HEAD
   "Tipo 27": "/produtos/tipo-27.png",
-=======
-  "Tipo 27": "/produtos/tipo-27.jpg",
->>>>>>> c7088708e7d473ddc0affa4f734a02390af123a7
   "Tipo 31/32": "/produtos/tipo-31-32.jpg",
   "Tipo 42": "/produtos/tipo-42.jpg",
   "Tipo 49": "/produtos/tipo-49.jpg",
@@ -131,13 +103,9 @@ function TipoPage() {
   const found = getTipo(slug, tipo);
   if (!found) return null;
   const { categoria, nome } = found;
-<<<<<<< HEAD
   const pdf = pdfHref(tipo);
   const pdfFilename = pdfDownloadName(nome);
   const whatsappCotacao = whatsAppUrl(cotacaoMessage(nome, categoria.titulo));
-=======
-  const pdf = pdfHref(slug, tipo);
->>>>>>> c7088708e7d473ddc0affa4f734a02390af123a7
 
   return (
     <div className="bg-background">
@@ -186,7 +154,6 @@ function TipoPage() {
             <div className="bg-card border border-border rounded-lg p-7">
               <div className="flex items-center gap-3">
                 <FileText className="w-6 h-6 text-primary" />
-<<<<<<< HEAD
                 <h2 className="font-display uppercase font-bold text-foreground">Catálogo PDF</h2>
               </div>
               <p className="mt-3 text-sm text-muted-foreground">
@@ -196,26 +163,12 @@ function TipoPage() {
               <a
                 href={pdf}
                 download={pdfFilename}
-=======
-                <h2 className="font-display uppercase font-bold text-foreground">
-                  Catálogo PDF
-                </h2>
-              </div>
-              <p className="mt-3 text-sm text-muted-foreground">
-                Baixe o catálogo técnico completo do {nome} com desenhos, dimensões e
-                tabela de materiais.
-              </p>
-              <a
-                href={pdf}
-                download
->>>>>>> c7088708e7d473ddc0affa4f734a02390af123a7
                 className="mt-5 w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-md bg-gradient-to-r from-primary to-accent-red text-primary-foreground font-semibold uppercase tracking-wide text-sm hover:opacity-95 transition"
               >
                 <Download className="w-4 h-4" /> Baixar PDF
               </a>
             </div>
 
-<<<<<<< HEAD
             <a
               href={whatsappCotacao}
               target="_blank"
@@ -224,14 +177,6 @@ function TipoPage() {
             >
               Solicitar cotação
             </a>
-=======
-            <Link
-              to="/contato"
-              className="block text-center bg-card border border-border rounded-lg p-5 hover:border-primary transition text-sm font-semibold text-primary"
-            >
-              Solicitar cotação
-            </Link>
->>>>>>> c7088708e7d473ddc0affa4f734a02390af123a7
           </aside>
         </div>
       </section>

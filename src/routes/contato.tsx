@@ -1,23 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
-<<<<<<< HEAD
 import { whatsAppUrl } from "@/lib/whatsapp";
-=======
->>>>>>> c7088708e7d473ddc0affa4f734a02390af123a7
 
 export const Route = createFileRoute("/contato")({
   head: () => ({
     meta: [
       { title: "Contato — APC Seal | Selos Mecânicos" },
-<<<<<<< HEAD
       {
         name: "description",
         content:
           "Fale com a APC Seal. Atendimento técnico especializado em selos mecânicos para todo o Brasil.",
       },
-=======
-      { name: "description", content: "Fale com a APC Seal. Atendimento técnico especializado em selos mecânicos para todo o Brasil." },
->>>>>>> c7088708e7d473ddc0affa4f734a02390af123a7
     ],
   }),
   component: Contato,
@@ -28,7 +21,6 @@ function Contato() {
     <div className="bg-background">
       <section className="py-16 bg-secondary border-b border-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-<<<<<<< HEAD
           <span className="font-display text-sm tracking-[0.3em] text-accent-red font-semibold uppercase">
             Contato
           </span>
@@ -38,11 +30,6 @@ function Contato() {
           <p className="mt-4 max-w-2xl text-muted-foreground">
             Conte sua aplicação. Retornamos com a melhor solução em vedação para seu equipamento.
           </p>
-=======
-          <span className="font-display text-sm tracking-[0.3em] text-accent-red font-semibold uppercase">Contato</span>
-          <h1 className="mt-3 font-display text-4xl sm:text-5xl uppercase font-bold text-foreground">Fale com nossos especialistas</h1>
-          <p className="mt-4 max-w-2xl text-muted-foreground">Conte sua aplicação. Retornamos com a melhor solução em vedação para seu equipamento.</p>
->>>>>>> c7088708e7d473ddc0affa4f734a02390af123a7
         </div>
       </section>
 
@@ -60,24 +47,16 @@ function Contato() {
                     <c.icon className="w-5 h-5" />
                   </div>
                   <div>
-<<<<<<< HEAD
                     <div className="font-display uppercase text-sm tracking-wider text-muted-foreground">
                       {c.t}
                     </div>
-=======
-                    <div className="font-display uppercase text-sm tracking-wider text-muted-foreground">{c.t}</div>
->>>>>>> c7088708e7d473ddc0affa4f734a02390af123a7
                     <div className="font-semibold text-foreground">{c.v}</div>
                   </div>
                 </div>
               ))}
             </div>
             <a
-<<<<<<< HEAD
               href={whatsAppUrl()}
-=======
-              href="https://wa.me/5500000000000"
->>>>>>> c7088708e7d473ddc0affa4f734a02390af123a7
               target="_blank"
               rel="noopener"
               className="mt-8 inline-flex items-center gap-2 bg-accent-red hover:bg-accent-red/90 text-accent-red-foreground px-6 py-4 rounded-md font-display font-semibold uppercase tracking-wider text-sm transition"
@@ -86,28 +65,20 @@ function Contato() {
             </a>
           </div>
 
-<<<<<<< HEAD
           <form
             className="bg-card border border-border rounded-lg p-8 space-y-4"
             onSubmit={(e) => e.preventDefault()}
           >
-=======
-          <form className="bg-card border border-border rounded-lg p-8 space-y-4" onSubmit={(e) => e.preventDefault()}>
->>>>>>> c7088708e7d473ddc0affa4f734a02390af123a7
             <div>
               <label className="text-sm font-semibold text-foreground">Nome</label>
               <input className="mt-1 w-full border border-border rounded-md px-4 py-3 bg-background outline-none focus:border-primary" />
             </div>
             <div>
               <label className="text-sm font-semibold text-foreground">E-mail</label>
-<<<<<<< HEAD
               <input
                 type="email"
                 className="mt-1 w-full border border-border rounded-md px-4 py-3 bg-background outline-none focus:border-primary"
               />
-=======
-              <input type="email" className="mt-1 w-full border border-border rounded-md px-4 py-3 bg-background outline-none focus:border-primary" />
->>>>>>> c7088708e7d473ddc0affa4f734a02390af123a7
             </div>
             <div>
               <label className="text-sm font-semibold text-foreground">Empresa</label>
@@ -115,14 +86,10 @@ function Contato() {
             </div>
             <div>
               <label className="text-sm font-semibold text-foreground">Mensagem</label>
-<<<<<<< HEAD
               <textarea
                 rows={5}
                 className="mt-1 w-full border border-border rounded-md px-4 py-3 bg-background outline-none focus:border-primary"
               />
-=======
-              <textarea rows={5} className="mt-1 w-full border border-border rounded-md px-4 py-3 bg-background outline-none focus:border-primary" />
->>>>>>> c7088708e7d473ddc0affa4f734a02390af123a7
             </div>
             <button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-display uppercase tracking-wider text-sm font-semibold py-4 rounded-md transition">
               Enviar mensagem
