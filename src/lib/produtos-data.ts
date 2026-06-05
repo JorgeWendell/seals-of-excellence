@@ -68,8 +68,13 @@ export const getTipo = (slug: string, tipoSlugStr: string) => {
   return nome ? { categoria: cat, nome } : undefined;
 };
 
+<<<<<<< HEAD
 /** URL do PDF em public/pdfs/{tipo-slug}.pdf (ex: public/pdfs/tipo-27.pdf) */
 export const pdfHref = (tipoSlugStr: string) => `/pdfs/${tipoSlugStr}.pdf`;
 
 export const pdfDownloadName = (nome: string) =>
   `${tipoSlug(nome)}-catalogo.pdf`;
+=======
+export const pdfHref = (catSlug: string, tipoSlugStr: string) =>
+  `/pdfs/${catSlug}/${tipoSlugStr}.pdf`;
+>>>>>>> c7088708e7d473ddc0affa4f734a02390af123a7

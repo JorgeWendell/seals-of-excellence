@@ -12,6 +12,7 @@ export default defineConfig({
   tanstackStart: {
     server: { entry: "server" },
   },
+<<<<<<< HEAD
   vite: {
     server: {
       port: 8070,
@@ -22,4 +23,6 @@ export default defineConfig({
       strictPort: true,
     },
   },
+=======
+>>>>>>> c7088708e7d473ddc0affa4f734a02390af123a7
 });
