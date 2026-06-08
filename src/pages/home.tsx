@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Link } from "react-router-dom";
 import {
   ShieldCheck,
@@ -44,7 +45,7 @@ export function HomePage() {
             <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl leading-[0.95] text-foreground uppercase">
               Tecnologia em <br />
               vedação. Qualidade <br />
-              // eslint-disable-next-line prettier/prettier que{" "}
+               que{" "}
               <span className="text-primary">garante</span>{" "}
               <span className="text-accent-red">performance.</span>
             </h1>
