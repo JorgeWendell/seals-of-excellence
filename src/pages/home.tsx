@@ -43,7 +43,8 @@ export function HomePage() {
           <div className="relative z-10">
             <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl leading-[0.95] text-foreground uppercase">
               Tecnologia em <br />
-              vedação. Qualidade que <br />
+              vedação. Qualidade <br />
+              que
               <span className="text-primary">garante</span>{" "}
               <span className="text-accent-red">performance.</span>
             </h1>
