@@ -35,7 +35,7 @@ export function ContatoPage() {
                 {
                   icon: MapPin,
                   t: "Endereço",
-                  v: "Rua Fábio da Silva Prado, 525 Vola Flórida, SBC - SP",
+                  v: "Rua Fábio da Silva Prado, 525 Vila Flórida, SBC - SP",
                 },
               ].map((c) => (
                 <div key={c.t} className="flex items-start gap-4">
