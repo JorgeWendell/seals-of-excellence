@@ -17,7 +17,7 @@ const DESCRICOES: Record<string, string> = {
   "Tipo 49B":
     "Selo mecânico Tipo 49B — Selo Du-O-Lap balanceado tipo 49B com fole de elastômero, é indicado para equipamentos rotativos em geral (bombas, compressores, misturadores). Aplicado nas indústrias alimentícias, petroquímicas, químicas, papel e celulose e de águas residuais.",
   "Tipo 50":
-    "Selo mecânico Tipo 50 — dSelo Du-O-Lap tipo 50 com fole de elastômero, é indicado para bombas, compressores, misturadores, resfriadores e outros equipamentos rotativos. Aplicado em processos alimentícios, petroquímicos, químicos,papel e celulose e águas residuais",
+    "Selo mecânico Tipo 50 — Selo Du-O-Lap tipo 50 com fole de elastômero, é indicado para bombas, compressores, misturadores, resfriadores e outros equipamentos rotativos. Aplicado em processos alimentícios, petroquímicos, químicos,papel e celulose e águas residuais",
   "Tipo 50B":
     "Selo mecânico Tipo 50B — Selo Du-O-Lap tipo 50B com fole de elastômero, é indicado para bombas, compressores, misturadores, resfriadores e outros equipamentos rotativos. Aplicado em processos alimentícios, petroquímicos, químicos,papel e celulose e águas residuais",
   "Tipo 51":

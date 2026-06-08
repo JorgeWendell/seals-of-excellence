@@ -42,8 +42,8 @@ export function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 items-center py-16 lg:py-24">
           <div className="relative z-10">
             <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl leading-[0.95] text-foreground uppercase">
-              Tecnologia que <br />
-              veda. Qualidade que <br />
+              Tecnologia em <br />
+              vedação. Qualidade que <br />
               <span className="text-primary">garante</span>{" "}
               <span className="text-accent-red">performance.</span>
             </h1>
@@ -152,7 +152,7 @@ export function HomePage() {
               Desde 1984, a APC Seal projeta, fabrica e recondiciona selos mecânicos para bombas,
               agitadores, compressores e equipamentos rotativos críticos. Atendemos segmentos como
               sucroenergético, químico, petroquímico, papel e celulose, saneamento, alimentos e
-              mineração.
+              mineração, farmaceutico, plastico, entre outros.
             </p>
             <Link
               to="/empresa"
@@ -165,7 +165,7 @@ export function HomePage() {
             {[
               { n: "41+", l: "Anos de mercado" },
               { n: "+5.000", l: "Selos entregues/ano" },
-              { n: "+200", l: "Clientes industriais" },
+              { n: "+10.000", l: "Clientes industriais" },
               { n: "100%", l: "Nacional" },
             ].map((s) => (
               <div key={s.l} className="bg-secondary p-6 rounded-lg border border-border">
@@ -185,8 +185,8 @@ export function HomePage() {
             Precisa de uma solução em vedação?
           </h2>
           <p className="mt-4 text-primary-foreground/85 max-w-2xl mx-auto">
-            Nosso time de engenharia desenvolve o selo certo para sua aplicação. Atendimento
-            técnico em todo o Brasil.
+            Nosso time de engenharia desenvolve o selo certo para sua aplicação. Atendimento técnico
+            em todo o Brasil.
           </p>
           <a
             href={whatsAppUrl()}
