@@ -30,9 +30,13 @@ export function ContatoPage() {
           <div>
             <div className="space-y-6">
               {[
-                { icon: Phone, t: "Telefone", v: "(00) 0000-0000" },
-                { icon: Mail, t: "E-mail", v: "contato@apcseal.com.br" },
-                { icon: MapPin, t: "Endereço", v: "Brasil — Atendimento nacional" },
+                { icon: Phone, t: "Telefone", v: "(11) 4178-3655" },
+                { icon: Mail, t: "E-mail", v: "contato@duolapbombas.com.br" },
+                {
+                  icon: MapPin,
+                  t: "Endereço",
+                  v: "Rua Fábio da Silva Prado, 525 Vola Flórida, SBC - SP",
+                },
               ].map((c) => (
                 <div key={c.t} className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-md bg-primary text-primary-foreground flex items-center justify-center shrink-0">
