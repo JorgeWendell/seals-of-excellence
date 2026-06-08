@@ -60,16 +60,17 @@ export function SiteFooter() {
           <ul className="space-y-3 text-sm text-industrial-dark-foreground/80">
             <li className="flex items-start gap-2" suppressHydrationWarning>
               <Phone className="w-4 h-4 mt-0.5 shrink-0" />{" "}
-              <span suppressHydrationWarning>(00) 0000-0000</span>
+              <span suppressHydrationWarning>(11) 4178-3655</span>
             </li>
             <li className="flex items-start gap-2" suppressHydrationWarning>
               <Mail className="w-4 h-4 mt-0.5 shrink-0" />{" "}
               <a href="mailto:contato@apcseal.com.br" suppressHydrationWarning>
-                contato@apcseal.com.br
+                contato@duolapbombas.com.br
               </a>
             </li>
             <li className="flex items-start gap-2">
-              <MapPin className="w-4 h-4 mt-0.5 shrink-0" /> Brasil — Atendimento nacional
+              <MapPin className="w-4 h-4 mt-0.5 shrink-0" /> Rua Fábio da Silva Prado, 525 Vila
+              Flórida, SBC - SP
             </li>
           </ul>
         </div>
