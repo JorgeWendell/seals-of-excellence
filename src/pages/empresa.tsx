@@ -27,37 +27,40 @@ export function EmpresaPage() {
       </section>
 
       <section className="py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-6">
-          {[
-            {
-              icon: Target,
-              t: "Missão",
-              d: "Entregar soluções de vedação que aumentem a confiabilidade e a produtividade dos nossos clientes.",
-            },
-            {
-              icon: Eye,
-              t: "Visão",
-              d: "Ser a marca de referência em selos mecânicos no Brasil, reconhecida pela engenharia e pelo atendimento.",
-            },
-            {
-              icon: Heart,
-              t: "Valores",
-              d: "Compromisso, qualidade comprovada, parceria de longo prazo e melhoria contínua.",
-            },
-          ].map((b) => (
-            <div
-              key={b.t}
-              className="bg-card border border-border rounded-lg p-8 hover:shadow-xl transition"
-            >
-              <div className="w-12 h-12 rounded-md bg-primary/10 text-primary flex items-center justify-center">
-                <b.icon className="w-6 h-6" />
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h1 className="font-display text-3xl uppercase font-bold text-foreground">Filosofia</h1>
+          <div className="mt-8 grid md:grid-cols-3 gap-6">
+            {[
+              {
+                icon: Target,
+                t: "Missão",
+                d: "Desenvolver, fabricar e recuperar Selos mecânicos para o mercado brasileiro, promovendo a satisfação de nossos clientes",
+              },
+              {
+                icon: Eye,
+                t: "Visão",
+                d: "Tornar-se uma empresa reconhecida por sua excelência em tecnologia e qualidade.",
+              },
+              {
+                icon: Heart,
+                t: "Valores",
+                d: "Respeito e ética no relacionamento com nossos clientes, funcionários e fornecedores, sustentados no respeito e na confiança mútua.",
+              },
+            ].map((b) => (
+              <div
+                key={b.t}
+                className="bg-card border border-border rounded-lg p-8 hover:shadow-xl transition"
+              >
+                <div className="w-12 h-12 rounded-md bg-primary/10 text-primary flex items-center justify-center">
+                  <b.icon className="w-6 h-6" />
+                </div>
+                <h3 className="mt-5 font-display uppercase text-xl font-bold text-foreground">
+                  {b.t}
+                </h3>
+                <p className="mt-3 text-muted-foreground text-sm">{b.d}</p>
               </div>
-              <h3 className="mt-5 font-display uppercase text-xl font-bold text-foreground">
-                {b.t}
-              </h3>
-              <p className="mt-3 text-muted-foreground text-sm">{b.d}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
