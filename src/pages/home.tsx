@@ -11,7 +11,7 @@ import {
   CalendarClock,
   MessageCircle,
 } from "lucide-react";
-import heroImg from "@/assets/hero-seals.jpg";
+import heroImg from "@/assets/hero-seals1.jpg";
 import duolap from "@/assets/logo-duolap.png";
 import { usePageMeta } from "@/lib/use-page-meta";
 import { whatsAppUrl } from "@/lib/whatsapp";
@@ -45,8 +45,7 @@ export function HomePage() {
             <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl leading-[0.95] text-foreground uppercase">
               Tecnologia em <br />
               vedação. Qualidade <br />
-               que{" "}
-              <span className="text-primary">garante</span>{" "}
+              que <span className="text-primary">garante</span>{" "}
               <span className="text-accent-red">performance.</span>
             </h1>
             <div className="mt-6 h-1 w-20 bg-accent-red" />
