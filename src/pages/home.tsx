@@ -11,7 +11,7 @@ import {
   CalendarClock,
   MessageCircle,
 } from "lucide-react";
-import heroImg from "@/assets/hero-seals1.jpg";
+import heroImg from "@/assets/hero-seals1.png";
 import duolap from "@/assets/logo-duolap.png";
 import { usePageMeta } from "@/lib/use-page-meta";
 import { whatsAppUrl } from "@/lib/whatsapp";
