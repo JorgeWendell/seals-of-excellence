@@ -96,7 +96,7 @@ export function HomePage() {
               alt="Selos mecânicos industriais APC Seal"
               width={1536}
               height={1024}
-              className="relative rounded-lg shadow-2xl object-cover w-full h-[420px] lg:h-[520px]"
+              className="relative rounded-lg shadow-2xl w-full h-auto object-contain lg:h-[520px] lg:object-cover"
             />
           </div>
         </div>
